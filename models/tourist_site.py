@@ -16,4 +16,17 @@ class Site(Base):
     gatepass = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.now)
     
+
+    @classmethod
+    def create_touristsite(cls, sitename, location, gatepass):
+        user = cls(
+            sitename=sitename,
+            location=location,
+            gatepass=gatepass
+        )
+        return user
+
+    def __repr__(self):
+        return f"Site_id='{self.site_id}'\nsitename='{self.sitename}'\nlocation='{self.location}'\ngatepass='{self.gatepass}'"
+
     
