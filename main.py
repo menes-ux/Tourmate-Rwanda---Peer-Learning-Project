@@ -8,6 +8,7 @@ Base.metadata.create_all(bind=engine)
 def main():
     while True:
         print(welcome_message)
+
         print()
         print("What do you want to do today?")
         print("1: View All Tourist Sites")
