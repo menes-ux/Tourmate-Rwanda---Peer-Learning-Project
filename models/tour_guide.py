@@ -13,3 +13,12 @@ class TourGuide(Base):
     country = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
+
+    @classmethod
+    def create_tour_guide(cls, fullname, email, country):
+        tour_guide = cls(
+            fullname=fullname,
+            email=email,
+            country=country
+        )
+        return tour_guide
