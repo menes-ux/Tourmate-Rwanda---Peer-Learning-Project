@@ -1,20 +1,25 @@
 from db import Base, engine
-# import models.user 
+from asciitext import welcome_message
+from cli.upload_site import register_newsite
+
 
 Base.metadata.create_all(bind=engine)
 
+
 def main():
     while True:
-        print("\nWelcome to Tour Mate Rwanda")
+        print(welcome_message)
+
         print()
         print("What do you want to do today?")
         print("1: View All Tourist Sites")
         print("2: Register as a Tour Guide")
         print("3: Book a Tour")
         print("4: Transactions")
-        print("5: Exit")
+        print("5: Add New Site (Admin)")
+        print("6: Exit")
 
-        choice = input("Enter your choice (1, 2, 3, 4, or 5): ").strip()
+        choice = input("Enter your choice (1, 2, 3, 4, 5, or 6): ").strip()
 
         match choice:
             case "1":
@@ -31,10 +36,14 @@ def main():
                 print("You selected: Transactions")
                 # Add logic here
             case "5":
+                print("Admin Selected Add New Site")
+                register_newsite()
+                
+            case "6":
                 print("Exiting the application. Goodbye!")
                 return
             case _:
-                print("Invalid input. Please enter 1, 2, 3, 4, or 5.")
+                print("Invalid input. Please enter 1, 2, 3, 4, 5, or 6.")
 
 
 def book_tour_menu():
