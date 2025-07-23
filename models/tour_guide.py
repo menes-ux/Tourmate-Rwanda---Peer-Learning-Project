@@ -22,3 +22,6 @@ class TourGuide(Base):
             country=country
         )
         return tour_guide
+    
+    def _repr_(self):
+        return f"TourGuideId='{self.id}'\nFullname='{self.fullname}'\nEmail='{self.email}'\nCountry='{self.country}'"
