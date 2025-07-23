@@ -25,3 +25,6 @@ class User(Base):
             country=country
         )
         return user
+
+    def __repr__(self):
+        return f"userId='{self.user_id}'\nfullname='{self.fullname}'\nemail='{self.email}'\ncountry='{self.country}'"
