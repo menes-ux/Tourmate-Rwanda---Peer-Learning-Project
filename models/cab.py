@@ -14,4 +14,11 @@ class Cab(Base):
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
 
-    
+    @classmethod
+    def create_cab(cls, cab_number, driver_name, driver_contact):
+        cab = cls(
+            cab_number=cab_number,
+            driver_name=driver_name,
+            driver_contact=driver_contact
+        )
+        return cab
