@@ -22,3 +22,6 @@ class Cab(Base):
             driver_contact=driver_contact
         )
         return cab
+
+    def _repr_(self):
+        return f"CabId='{self.id}'\ncab_number='{self.cab_number}'\ndriver_name='{self.driver_name}'\ndriver_contact='{self.driver_contact}'"
