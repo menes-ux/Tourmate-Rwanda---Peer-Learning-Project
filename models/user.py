@@ -15,3 +15,13 @@ class User(Base):
     country = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
+
+    @classmethod
+    def create_user(cls, fullname, email, password, country):
+        user = cls(
+            fullname=fullname,
+            email=email,
+            password=password,
+            country=country
+        )
+        return user
