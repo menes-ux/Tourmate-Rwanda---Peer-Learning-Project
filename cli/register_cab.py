@@ -18,3 +18,4 @@ def register_cab():
     except Exception as e:
         print(f"Error registering cab: {e}")
     finally:
+        db.close()
