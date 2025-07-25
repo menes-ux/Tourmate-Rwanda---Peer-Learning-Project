@@ -1,12 +1,16 @@
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.dialects.postgresql import UUID
+
 from sqlalchemy.orm import relationship
+
 from datetime import datetime
 import uuid
 from  db import Base
 
 class Cab(Base):
+
     __tablename__ = 'cabs'
+
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     cab_number = Column(String, nullable=False, unique=True)
@@ -27,6 +31,7 @@ class Cab(Base):
         )
         return cab
 
+
     def __repr__(self):
         # return f"CabId='{self.id}'\ncab_number='{self.cab_number}'\ndriver_name='{self.driver_name}'\ndriver_contact='{self.driver_contact}'"
     
@@ -38,3 +43,7 @@ class Cab(Base):
             f"| Driver Name     | {self.driver_name:<40} |\n"
             f"| Driver Contact  | {self.driver_contact:<40} |\n"
         )
+
+    def _repr_(self):
+        return f"CabId='{self.id}'\ncab_number='{self.cab_number}'\ndriver_name='{self.driver_name}'\ndriver_contact='{self.driver_contact}'"
+

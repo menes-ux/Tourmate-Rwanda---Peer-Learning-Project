@@ -30,3 +30,4 @@ def register_cab():
         print(f"Error registering cab: {e}")
     finally:
         db.close()
+

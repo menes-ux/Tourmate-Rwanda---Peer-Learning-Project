@@ -18,6 +18,7 @@ def register_tour_guide():
             session.commit()
         else:
             print("\n All fields are required. Tour Guide was not created.")
+
         session.refresh(tour_guide)
 
         print("\nTour Guide Registered Successfully!")
