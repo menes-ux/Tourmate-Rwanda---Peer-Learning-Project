@@ -5,7 +5,7 @@ from sqlalchemy.dialects.postgresql import UUID
 import uuid
 
 class Group(Base):
-    _tablename_ = 'groups'
+    __tablename__ = 'groups'
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     visiting_date = Column(DateTime, nullable=False)
     tour_guide_id = Column(UUID(as_uuid=True), ForeignKey('tour_guides.id'), nullable=False)
