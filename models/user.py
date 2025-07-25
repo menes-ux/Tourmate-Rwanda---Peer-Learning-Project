@@ -1,5 +1,6 @@
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
 
@@ -16,6 +17,8 @@ class User(Base):
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
     
+    bookings = relationship("Booking", back_populates="user")
+    
     
     @classmethod
     def create_user(cls, fullname, email, password, country):
@@ -28,5 +31,5 @@ class User(Base):
         return user
 
     def __repr__(self):
-        return f"userId='{self.user_id}'\nfullname='{self.fullname}'\nemail='{self.email}'\ncountry='{self.country}'"
+        return f"userId='{self.id}'\nfullname='{self.fullname}'\nemail='{self.email}'\ncountry='{self.country}'"
 
