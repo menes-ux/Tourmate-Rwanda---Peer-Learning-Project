@@ -2,9 +2,13 @@ from models.tourist_site import TouristSite
 from db import SessionLocal
 from asciitext import not_found
 
+session = SessionLocal()
+
 
 def register_newsite():
-    session = SessionLocal()
+    """
+    This is a function that registers tourist sites.
+    """
     try:
         print("Register New Tourist Site")
         sitename = input("Tourist Site Name: ").strip()
@@ -28,7 +32,9 @@ def register_newsite():
 
         
 def view_all_sites():
-    session = SessionLocal()
+    """
+    This is a function that retrieves and displays all registered tourist sites.
+    """
     try:
         sites = session.query(TouristSite).all()
         if not sites:
