@@ -3,6 +3,9 @@ from db import SessionLocal
 
 
 def register_tour_guide():
+    """
+    This is a function that asks a user to register as a tour guide with their full name, email, and country
+    """
     session = SessionLocal()
     try:
         print("Register New Tour Guide")
