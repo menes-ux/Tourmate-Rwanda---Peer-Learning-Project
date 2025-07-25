@@ -3,6 +3,7 @@ from asciitext import welcome_message
 from cli.upload_site import register_newsite, view_all_sites
 from cli.register_cab import register_cab
 from cli.register_tour_guide import register_tour_guide
+from cli.booking_cli import book_tour_menu
 from asciitext import all_sites
 
 
@@ -36,10 +37,10 @@ def main():
                 register_tour_guide()
             case "3":
                 print("You selected: Book a Tour")
-                # Add logic here
+                book_tour_menu()
             case "4":
                 print("You selected: Transactions")
-                # Add logic here
+                # Add transaction logic here
             case "5":
                 print("Admin Selected Add New Site")
                 register_newsite()
