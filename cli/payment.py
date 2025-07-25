@@ -24,3 +24,21 @@ def payment_flow(session, booking_reference: str):
 
     print(f"Payment for {booking.booking_reference} processed successfully. Booking confirmed.")
     print("-" * 40)
+
+def paymentPrompt(session):
+    """
+    This is a function that prompts the user to pay for their booking.
+    """
+    inputValue = input("Do you want to pay now? (yes/no): ").strip().lower()
+    
+    if inputValue != "yes":
+        print("Payment canceled.")
+        return
+
+    booking_ref = input("Please enter your Booking Reference: ").strip().upper()
+
+    if not booking_ref:
+        print("Booking reference cannot be empty.")
+        return
+
+    payment_flow(session, booking_ref)
