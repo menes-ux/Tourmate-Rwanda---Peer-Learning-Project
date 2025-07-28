@@ -49,5 +49,7 @@ def login_user():
         else:
             print("Check your email and password. User not found.")
             return None
+    except Exception as e:
+        print("Error  during login", e)
     finally:
         session.close()
