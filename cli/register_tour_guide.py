@@ -12,10 +12,16 @@ def register_tour_guide():
         fullname = input("Full Name: ").strip()
         email = input("Email: ").strip()
         country = input("Country: ").strip()
+
+        
+
         if fullname and email and country:
             tour_guide = TourGuide.create_tour_guide(fullname, email, country)
             session.add(tour_guide)
             session.commit()
+            existing_email = session.query(TourGuide).filter_by(email=email).first()
+        elif existing_email:
+            print(f"\n'{email}' Is aleady being used.")
         else:
             print("\n All fields are required. Tour Guide was not created.")
 
