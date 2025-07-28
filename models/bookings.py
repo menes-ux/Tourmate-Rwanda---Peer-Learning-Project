@@ -73,7 +73,7 @@ class Booking(Base):
 
 
 
-GROUP_LIMIT = 8
+GROUP_LIMIT = 4 
 
 def handle_grouping(session, visiting_date, site_id):
     dateOfVisit = visiting_date.date()
